@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<head>    
+    <title>PlaylistBlender</title>
+</head>
+<body>
+    <h1>PlaylistBlender</h1>
+    <form action="http://127.0.0.1:5000/playlist_img">
+        <label for="playlist_submit">Enter a public Spotify playlist URL: </label>
+        <input type="text" name="playlist_url" id="playlist_submit" required/>
+        <button type="submit" formmethod="POST">Get playlist data</button>
+    </form>
+
+    {% if playlist_error %}
+    <p>{{playlist_error}} Make sure you're submitting the link to a <b>public</b> Spotify playlist!</p>
+    {% endif %}
+
+    {% if metadata %}
+    <h3>Playlist data:</h3>
+    <p><b>{{metadata["playlist_title"]}}</b> created by <b>{{metadata["playlist_owner"]}}</b> with {{metadata["number_of_tracks"]}} tracks.</p>
+    {% endif %}
+    
+    {% if attribute_data %}
+    <h3>Averaged attribute data:</h3>
+    <ul>
+        <li>Acousticness: {{attribute_data['acousticness']}}</li>
+        <li>Energy: {{attribute_data['energy']}}</li>
+        <li>Tempo: {{attribute_data['tempo']}}</li>
+        <li>Valence: {{attribute_data['valence']}}</li>
+    </ul>
+    {% endif %}
+
+    {% if img1 %}
+        <img src="data:image/png;base64,{{img1 | safe}}">
+    {% endif %}
+
+    {% if img2 %}
+        <img src="data:image/png;base64,{{img2 | safe}}">
+    {% endif %}
+
+    {% if img2 %}
+        <img src="data:image/png;base64,{{img3 | safe}}">
+    {% endif %}
+</body>
+</html>
