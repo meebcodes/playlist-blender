@@ -44,7 +44,7 @@ def attr_to_gen_input(tempo, valence, energy, acousticness) -> tuple[list[float]
     value = .6 + (valence * .4)
 
     # how many increments of 35 over 90 bpm
-    range = ((tempo - 90) // 35)
+    range = ((tempo - 90) // 20)
     if range < 1:
         range = 1
 
@@ -201,6 +201,8 @@ def gen_linear_horiz_grad_hsv_interp(c1, c2) -> io.BytesIO():
             h = ((c2[0] - c1[0]) * (j / HEIGHT) + c1[0])
             s = ((c2[1] - c1[1]) * (j / HEIGHT) + c1[1])
             v = ((c2[2] - c1[2]) * (j / HEIGHT) + c1[2])
+
+            a[i][j][0], a[i][j][1], a[i][j][2] = tuple(map(lambda x: int(x * 255), list(colorsys.hsv_to_rgb(h, s, v))))
     
     # make an image from the array and save it as a PNG
     img = Image.fromarray(a)
@@ -316,7 +318,7 @@ def gen_linear_horiz_grad_from_attr(tempo, valence, energy, acousticness) -> io.
     
     c1 = hsv
     c2 = [c1[0] + .2 * range, c1[1], c1[2]]
-    return gen_linear_horiz_grad_rgb_interp(c1, c2)
+    return gen_linear_horiz_grad_hsv_interp(c1, c2)
 
 def gen_linear_vert_grad_from_attr(tempo, valence, energy, acousticness) -> io.BytesIO():
     '''
@@ -417,4 +419,3 @@ if __name__ == '__main__':
     img_data = gen_linear_horiz_grad_from_attr(tempo=123.25553571428567, valence=0.4888749999999999, energy=0.7668392857142857, acousticness=0.08682526839285713)
     img = Image.open(fp=img_data)
     img.save(fp="math.png")
-    
