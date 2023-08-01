@@ -5,42 +5,55 @@
     <title>PlaylistBlender</title>
 </head>
 <body>
-    <h1>PlaylistBlender</h1>
-    <form action="http://127.0.0.1:5000/playlist_img">
-        <label for="playlist_submit">Enter a public Spotify playlist URL: </label>
-        <input type="text" name="playlist_url" id="playlist_submit" required/>
-        <button type="submit" formmethod="POST">Get playlist data</button>
-    </form>
+    <div class="row">
+        <div class="sidebar">
+            <h1>PlaylistBlender</h1>
+            <p><b>PlaylistBlender</b> is a tool that uses the Spotify API to generate
+            appealing gradient images from public Spotify playlists.
+            These images will reflect the mood and feel of the playlist,
+            and are even formatted so you can upload them as cover art!<br><br>
+            To get started, <b>copy the URL</b> of a <b>public Spotify playlist</b>
+            and enter it into the form. Then press <b>"Get blends"</b> to get your results!
+        </div>
+        <div class="main">
+            <h1>Try a blend!</h1>
+            <form action="http://127.0.0.1:5000/playlist_img">
+                <label for="playlist_submit">Enter a public Spotify playlist URL:<br></label>
+                <input type="text" name="playlist_url" id="playlist_submit" required/>
+                <button type="submit" formmethod="POST">Get blends</button>
+            </form>
 
-    {% if playlist_error %}
-    <p>{{playlist_error}} Make sure you're submitting the link to a <b>public</b> Spotify playlist!</p>
-    {% endif %}
+            {% if playlist_error %}
+            <p>{{playlist_error}} Make sure you're submitting the link to a <b>public</b> Spotify playlist!</p>
+            {% endif %}
 
-    {% if metadata %}
-    <h3>Playlist data:</h3>
-    <p><b>{{metadata["playlist_title"]}}</b> created by <b>{{metadata["playlist_owner"]}}</b> with {{metadata["number_of_tracks"]}} tracks.</p>
-    {% endif %}
-    
-    {% if attribute_data %}
-    <h3>Averaged attribute data:</h3>
-    <ul>
-        <li>Acousticness: {{attribute_data['acousticness']}}</li>
-        <li>Energy: {{attribute_data['energy']}}</li>
-        <li>Tempo: {{attribute_data['tempo']}}</li>
-        <li>Valence: {{attribute_data['valence']}}</li>
-    </ul>
-    {% endif %}
+            {% if metadata %}
+            <h3>Playlist data:</h3>
+            <p><b>{{metadata["playlist_title"]}}</b> created by <b>{{metadata["playlist_owner"]}}</b> with {{metadata["number_of_tracks"]}} tracks.</p>
+            {% endif %}
+            
+            {% if attribute_data %}
+            <h3>Averaged attribute data:</h3>
+            <ul>
+                <li>Acousticness: {{attribute_data['acousticness']}}</li>
+                <li>Energy: {{attribute_data['energy']}}</li>
+                <li>Tempo: {{attribute_data['tempo']}}</li>
+                <li>Valence: {{attribute_data['valence']}}</li>
+            </ul>
+            {% endif %}
 
-    {% if img1 %}
-        <img src="data:image/png;base64,{{img1 | safe}}">
-    {% endif %}
+            {% if img1 %}
+                <img src="data: image/png; base64, {{img1}}">
+            {% endif %}
 
-    {% if img2 %}
-        <img src="data:image/png;base64,{{img2 | safe}}">
-    {% endif %}
+            {% if img2 %}
+                <img src="data: image/png; base64, {{img2}}">
+            {% endif %}
 
-    {% if img2 %}
-        <img src="data:image/png;base64,{{img3 | safe}}">
-    {% endif %}
+            {% if img2 %}
+                <img src="data: image/png; base64, {{img3}}">
+            {% endif %}
+        </div>
+    </div>
 </body>
 </html>

@@ -43,8 +43,8 @@ def attr_to_gen_input(tempo, valence, energy, acousticness) -> tuple[list[float]
     # 50% to 100%
     value = .6 + (valence * .4)
 
-    # how many increments of 30 over 60 bpm
-    range = ((tempo - 60) // 30)
+    # how many increments of 35 over 90 bpm
+    range = ((tempo - 90) // 35)
     if range < 1:
         range = 1
 

@@ -1,8 +1,24 @@
 html {
     font-family: sans-serif;
     text-align: center;
+    font-size: 24px;
 }
 
 ul {
     list-style-position: inside;
+}
+
+.row{
+    display: flex;
+}
+
+.sidebar{
+    flex: 20%;
+    background-color: #9ee8bb;
+    padding: 2%;
+    text-align: left;
+}
+
+.main{
+    flex: 85%;
 }
