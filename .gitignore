@@ -2,3 +2,5 @@ __pycache__/
 .env
 .cache
 .DS_Store
+gradient_generator/hsv_demos/
+gradient_generator/rgb_demos/

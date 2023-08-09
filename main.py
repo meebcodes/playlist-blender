@@ -44,8 +44,11 @@ def display_image():
         img3_data = gen.gen_linear_radial_grad_from_attr(average_data["tempo"], average_data["valence"], average_data["energy"], average_data["acousticness"]).getvalue()
         img3_base64 = base64.b64encode(img3_data).decode("utf-8")
 
+        img4_data = gen.gen_linear_conic_grad_from_attr(average_data["tempo"], average_data["valence"], average_data["energy"], average_data["acousticness"]).getvalue()
+        img4_base64 = base64.b64encode(img4_data).decode("utf-8")
+
         # ======
         # RENDER
         # ======
         
-        return render_template("index.html", metadata=metadata, attribute_data=average_data, img1=img1_base64, img2=img2_base64, img3=img3_base64)
+        return render_template("index.html", metadata=metadata, attribute_data=average_data, img1=img1_base64, img2=img2_base64, img3=img3_base64, img4=img4_base64)
