@@ -11,6 +11,10 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
+@app.route("/about", methods=["GET"])
+def about():
+    return render_template("about.html")
+
 @app.route("/playlist_img", methods=["POST"])
 def display_image():
     if request.method == "POST":

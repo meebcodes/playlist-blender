@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<head>    
+    <title>About & How-To</title>
+</head>
+<body>
+    <div class="row">
+        <div class="sidebar">
+            <h1>PlaylistBlender</h1>
+            <p><b>PlaylistBlender</b> is a tool that uses the Spotify API to generate
+            appealing gradient images from public Spotify playlists.
+            These images will reflect the mood and feel of the playlist,
+            and are even formatted so you can upload them as cover art!<br><br>
+            To get started, <b>copy the URL</b> of a <b>public Spotify playlist</b>
+            and enter it into the form. Then press <b>"Get blends"</b> to get your results!<br><br>
+            <a href="{{url_for('about')}}"><b>About & How-To</b></a>
+        </div>
+        <div class="main">
+            <a href="{{url_for('index')}}"><b>Back to PlaylistBlender</b></a><br><br>
+            <p>PlaylistBlender is a web app that allows you to generate gradient images
+                that reflect the mood and feel of your Spotify playlists.<br><br>
+                These images are generated from an algorithm that takes into account the
+                averaged musical attributes of songs on your playlist and outputs an image
+                with colors chosen based on those averages. For example, a playlist with lots
+                of cheery, upbeat songs might generate a bright, highly-saturated image. A playlist
+                with lots of chill piano tracks, on the other hand, might produce something
+                more muted and soft.<br><br>
+                All of these musical attributes are pulled from the Spotify API. PlaylistBlender
+                doesn't need (or have) access to any part of your Spotify account, so don't worry--this app
+                won't make any kinds of changes to the playlists you submit. (This is also why PlaylistBlender
+                is currently limited to public playlists!)<br><br>
+                To copy a link to a playlist, first navigate to that playlist in your mobile or desktop
+                Spotify app. Then:
+            </p>
+            <h3>Mobile</h3>
+            <p>Click the three dots at the top of the playlist.
+            Then click <b>Share</b> > <b>Copy link</b>.</p>
+            <h3>Desktop</h3>
+            <p>Click the three dots at the top of the playlist.
+            Then hover over <b>Share</b> and click <b>Copy link to playlist</b>.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

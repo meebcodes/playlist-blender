@@ -13,7 +13,8 @@
             These images will reflect the mood and feel of the playlist,
             and are even formatted so you can upload them as cover art!<br><br>
             To get started, <b>copy the URL</b> of a <b>public Spotify playlist</b>
-            and enter it into the form. Then press <b>"Get blends"</b> to get your results!
+            and enter it into the form. Then press <b>"Get blends"</b> to get your results!<br><br>
+            <a href="{{url_for('about')}}"><b>About & How-To</b></a>
         </div>
         <div class="main">
             <h1>Try a blend!</h1>
@@ -57,7 +58,7 @@
             {% if img4 %}
             <img src="data: image/png; base64, {{img4}}">
             {% endif %}
-            
+
         </div>
     </div>
 </body>
