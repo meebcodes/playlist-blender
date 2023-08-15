@@ -440,18 +440,17 @@ if __name__ == '__main__':
     # These are hardcoded values just used for testing the appearance of gradients.
 
     # asobi seksu: strawberries
-    img_data = gen_linear_conic_grad_from_attr(tempo=130.542, valence=0.350, energy=0.859, acousticness=0.000322)
+    img_data = gen_linear_horiz_grad_from_attr(tempo=130.542, valence=0.350, energy=0.859, acousticness=0.000322)
     img = Image.open(fp=img_data)
     img.save(fp="strawberries.png")
 
-
     # caroline polachek: welcome to my island
-    img_data = gen_linear_conic_grad_from_attr(tempo=118.000, valence=0.360, energy=0.627, acousticness=0.0836)
+    img_data = gen_linear_vert_grad_from_attr(tempo=118.000, valence=0.360, energy=0.627, acousticness=0.0836)
     img = Image.open(fp=img_data)
     img.save(fp="welcome.png")
 
     # tennis: glorietta
-    img_data = gen_linear_conic_grad_from_attr(tempo=169.034, valence=0.799, energy=0.839, acousticness=0.0183)
+    img_data = gen_linear_radial_grad_from_attr(tempo=169.034, valence=0.799, energy=0.839, acousticness=0.0183)
     img = Image.open(fp=img_data)
     img.save(fp="glorietta.png")
 
