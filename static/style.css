@@ -22,3 +22,10 @@ ul {
 .main{
     flex: 85%;
 }
+
+.about{
+    flex: 85%;
+    padding: 2%;
+    text-align: left;
+    text-justify: auto;
+}

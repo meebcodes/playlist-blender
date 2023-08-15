@@ -74,9 +74,9 @@ def get_avg_attr_data(attributes):
         tempo_sum += track["tempo"]
     
     averages = {}
-    averages["valence"] = valence_sum / num_tracks
-    averages["energy"] = energy_sum / num_tracks
-    averages["acousticness"] = acousticness_sum / num_tracks
-    averages["tempo"] = tempo_sum / num_tracks
+    averages["valence"] = round(valence_sum / num_tracks, 3)
+    averages["energy"] = round(energy_sum / num_tracks, 3)
+    averages["acousticness"] = round(acousticness_sum / num_tracks, 3)
+    averages["tempo"] = round(tempo_sum / num_tracks, 3)
 
     return averages
