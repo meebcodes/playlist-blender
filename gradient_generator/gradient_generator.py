@@ -39,6 +39,8 @@ def attr_to_gen_input(tempo, valence, energy, acousticness) -> tuple[list[float]
     
     # 35% to 100%
     saturation = .35 + (energy * .65) - (acousticness * .35)
+    if saturation < .35:
+        saturation = .35
 
     # 50% to 100%
     value = .6 + (valence * .4)
@@ -473,3 +475,8 @@ if __name__ == '__main__':
     img_data = gen_linear_conic_grad_from_attr(tempo=123.25553571428567, valence=0.4888749999999999, energy=0.7668392857142857, acousticness=0.08682526839285713)
     img = Image.open(fp=img_data)
     img.save(fp="math.png")
+
+    # peaceful piano playlist
+    img_data = gen_linear_conic_grad_from_attr(tempo=105.929, valence=0.232, energy=0.041, acousticness=0.989)
+    img = Image.open(fp=img_data)
+    img.save(fp="piano.png")
