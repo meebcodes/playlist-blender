@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, url_for
+from flask import Flask, request, render_template
 import base64
 from gradient_generator import gradient_generator as gen
 from playlist_data import playlist_data as pd
