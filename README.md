@@ -2,7 +2,7 @@
 
 PlaylistBlender is a Flask web application that generates appealing gradient images reflecting the mood and feel of a Spotify playlist. It is not particularly scientific or complex, but it's a little bit cool. And the resulting images are perfectly formatted for use as playlist cover art!
 
-![PlaylistBlender example screenshot] (/img/demo.png)
+![PlaylistBlender example screenshot] (img/demo.png)
 
 ### Capabilities
 
